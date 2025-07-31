@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# check what databases and tools are available
+
+command -v fastp >/dev/null 2>&1 && echo "fastp: available" || echo "fastp: NOT available"
+command -v bowtie2 >/dev/null 2>&1 && echo "bowtie2: available" || echo "bowtie2: NOT available"

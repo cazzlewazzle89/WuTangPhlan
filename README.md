@@ -1,12 +1,14 @@
 # Enter the Wu-TangPhlAn
 The goal is to turn this into a (w)rapper script for **Ph**y**l**ogenetic **An**alysis of metagenomic data.  
 
-This page is just acting as a to-do list for myself - will put together a wiki when I get it in a working state.
+This page is just acting as a to-do list for myself - I will put together a wiki when I get it in a working state.
 
-Will structure it similar to a nextflow pipieline (pulling options from a config file and using separate scripts for each step/option)
+The plan is to structure this similar to a nextflow pipieline (pulling options from a config file and using separate scripts for each step/option).
 
-- [ ] main script
-- [ ] config file
+I will write it in bash for now - but aim to build a nextflow version eventually
+
+- [x] main script
+- [x] config file
 - [ ] quality control
     - [ ] fastp
     - [ ] trimmomatic

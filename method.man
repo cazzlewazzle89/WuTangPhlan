@@ -1,0 +1,16 @@
+
+# general stuff
+MANIFEST_FILE=manifest.tsv
+OUTPUT_DIR=WUTANG/
+THREADS=8
+
+# making sure conda envs can be loaded by wutang.sh
+CONDA_SH_PATH="/Users/cwwalsh/miniconda3/etc/profile.d/conda.sh"
+
+# quality control
+QUALITY_TOOL="fastp"
+
+# host removal
+DECONTAM_TOOL="hostile"
+HOST="human"
+
