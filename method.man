@@ -1,7 +1,9 @@
 
-# general stuff
+# pipeline options
 MANIFEST="manifest.tsv"
 OUTDIR="WUTANG"
+RUN_QC="TRUE"
+RUN_HOST="TRUE"
 
 # making sure conda envs can be loaded by wutang.sh
 CONDA_SH_PATH="/home/cwwalsh/miniconda3/etc/profile.d/conda.sh"

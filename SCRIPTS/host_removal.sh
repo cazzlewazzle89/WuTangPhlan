@@ -1,54 +1,7 @@
 #!/bin/bash
 
 source ./method.man
-
-# check if told to skip
-if [[ "$HOST_TOOL" == "skip" ]]
-then
-
-    echo "Skipping host removal as specified"
-    exit 0
-
-else
-
-    echo "Performing host removal with ${HOST_TOOL}"
-
-fi
-
-# define function to confirm bowtie2 database exists
-check_bowtie2_index() {
-
-    local prefix=$1
-    local missing=0
-
-    for i in 1 2 3 4
-    do
-
-        [[ -f "${HOST_DATABASE}.${i}.bt2" ]] || missing=1
-
-    done
-
-    for i in 1 2
-    do
-    
-        [[ -f "${HOST_DATABASE}.rev.${i}.bt2" ]] || missing=1
-    
-    done
-
-    if [[ $missing -eq 1 ]]
-    then
-    
-        echo "Missing Bowtie2 index files for prefix: $HOST_DATABASE" >&2
-        return 1
-    
-    else
-    
-        echo "Host Bowtie2 index is valid: $HOST_DATABASE"
-        return 0
-    
-    fi
-
-}
+source utility.sh
 
 # confirm existence
 check_bowtie2_index "$HOST_DATABASE" || exit 1

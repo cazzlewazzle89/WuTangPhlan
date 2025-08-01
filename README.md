@@ -19,12 +19,10 @@ I will write it in bash for now - but aim to build a nextflow version eventually
     - [x] hostile
         - [x] user-defined
     - [x] skip
-    - [ ] download script for pre-built databases
 - [ ] compositional profiling
     - [ ] kraken2
     - [ ] metaphlan3
     - [ ] singlem
-    - [ ] download script for pre-built databases
 - [ ] functional profiling
     - [ ] superfocus
 - [ ] MAG reconstruction
@@ -49,13 +47,19 @@ I will write it in bash for now - but aim to build a nextflow version eventually
             - [ ] MGBC
             - [ ] UHGG
             - [ ] GTDB (reps, dereplicated)
-            - [ ] download script for pre-built databases
         - [ ] user MAGs only
             - [ ] dereplication cutoff
         - [ ] reference genomes plus MAGs
             - [ ] reference database
             - [ ] dereplication cutoff
-            - [ ] download script for pre-built databases
 - [ ] strain-level profiling
     - [ ] instrain
+        - [ ] reference database only
+        - [ ] user MAGs only
+        - [ ] reference genomes plus MAGs
     - [ ] strainscan
+- [ ] download script for pre-built databases
+    - [ ] host
+    - [ ] composition
+    - [ ] OGU
+    - [ ] instrain

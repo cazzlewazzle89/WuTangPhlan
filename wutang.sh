@@ -94,8 +94,26 @@ echo "Host database: ${HOST_DATABASE}"
 mkdir "$OUTDIR"
 
 # run qc
-bash "$SCRIPT_DIR"/SCRIPTS/qc.sh
+if [[ "$RUN_QC" == "FALSE" ]]
+then
+  
+  echo "Skipping qc as specified"
+  
+  else 
+  
+  bash "$SCRIPT_DIR"/SCRIPTS/qc.sh
+
+fi
 
 # run host removal
-bash "$SCRIPT_DIR"/SCRIPTS/host_removal.sh
+if [[ "$RUN_HOST" == "FALSE" ]]
+then
+  
+  echo "Skipping qc as specified"
+  
+  else
+  
+    bash "$SCRIPT_DIR"/SCRIPTS/host_removal.sh
+
+fi
 

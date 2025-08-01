@@ -2,19 +2,6 @@
 
 source ./method.man
 
-# check if told to skip
-if [[ "$QUALITY_TOOL" == "skip" ]]
-then
-
-    echo "Skipping qc as specified"
-    exit 0
-
-else
-
-    echo "Performing qc with ${QUALITY_TOOL}"
-
-fi
-
 # limit threads to 16 if running fastp
 if [[ "$QUALITY_TOOL" == "fastp" ]]
 then
