@@ -13,12 +13,8 @@ source "$CONDA_SH_PATH"
 conda activate "$CONDA_ENV_HOST"
 
 # run qc
-while read -r i j k 
-do
-
-    if [ "$HOST_TOOL" == "bowtie2" ]
-    then
-        
+while read -r i j k; do
+    if [ "$HOST_TOOL" == "bowtie2" ]; then        
         bowtie2 \
             --threads "$HOST_THREADS" \
             --seed 42 \
@@ -40,9 +36,7 @@ do
         rm -f "$OUTDIR"/FASTQ/"$i"_trimmed_R1.fastq.gz 
         rm -f "$OUTDIR"/FASTQ/"$i"_trimmed_R2.fastq.gz 
         rm -f "$OUTDIR"/FASTQ/"$i"_microbial.bam
-
     else
-
         hostile clean \
             --fastq1 "$OUTDIR"/FASTQ/"$i"_trimmed_R1.fastq.gz \
             --fastq2 "$OUTDIR"/FASTQ/"$i"_trimmed_R2.fastq.gz \
@@ -55,8 +49,6 @@ do
         mv "$OUTDIR"/FASTQ/"$i"_trimmed_R2.clean_2.fastq.gz "$OUTDIR"/FASTQ/"$i"_R2.fastq.gz
 
         rm -f "$OUTDIR"/FASTQ/"$i"_trimmed_R1.fastq.gz
-        rm -f "$OUTDIR"/FASTQ/"$i"_trimmed_R2.fastq.gz
-            
+        rm -f "$OUTDIR"/FASTQ/"$i"_trimmed_R2.fastq.gz            
     fi 
-
 done < "$MANIFEST"

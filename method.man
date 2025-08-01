@@ -18,4 +18,3 @@ HOST_TOOL="hostile"
 HOST_DATABASE="/home/cwwalsh/Databases/Hostile/human-t2t-hla-argos985-mycob140"
 CONDA_ENV_HOST="/home/cwwalsh/miniconda3/envs/hostile/"
 HOST_THREADS=20
-
