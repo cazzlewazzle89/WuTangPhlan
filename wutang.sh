@@ -70,22 +70,49 @@ then
 
 fi
 
-# confirm that specified qc tool is valid
-if [ "$QUALITY_TOOL" == 'fastp' ] || [ "$QUALITY_TOOL" == 'trimgalore' ]
+# print pipeline options
+echo "Input: ${MANIFEST}"
+echo "Output: ${OUTDIR}"
+echo "Quality Control: ${RUN_QC}"
+echo "Host Removal: ${RUN_HOST}"
+
+# confirm that specified qc tool is valid (if applicable)
+if [ "$RUN_QC" == "TRUE" ]
 then
 
-  :
+  if [ "$QUALITY_TOOL" == "fastp" ] || [ "$QUALITY_TOOL" == "trimgalore" ]
+  then
 
-else
+    :
 
-  echo 'qc tool not recognised'
-  exit 1
+  else
+
+    echo "qc tool not recognised: ${QUALITY_TOOL}"
+    exit 1
+
+  fi
 
 fi
 
-# print configuration
-echo "Input: ${MANIFEST}"
-echo "Output: ${OUTDIR}"
+# confirm that specified host removal tool is valid (if applicable)
+if [ "$RUN_HOST" == "TRUE" ]
+then
+
+  if [ "$HOST_TOOL" == "bowtie2" ] || [ "$HOST_TOOL" == "hostile" ]
+  then
+
+    :
+
+  else
+
+    echo "Host removal tool not recognised: ${HOST_TOOL}"
+    exit 1
+
+  fi
+
+fi
+
+# print configuration for specified steps
 echo "Quality control: ${QUALITY_TOOL}"
 echo "Host removal: ${HOST_TOOL}"
 echo "Host database: ${HOST_DATABASE}"
@@ -109,11 +136,11 @@ fi
 if [[ "$RUN_HOST" == "FALSE" ]]
 then
   
-  echo "Skipping qc as specified"
+  echo "Skipping host removal as specified"
   
   else
   
-    bash "$SCRIPT_DIR"/SCRIPTS/host_removal.sh
+  bash "$SCRIPT_DIR"/SCRIPTS/host_removal.sh
 
 fi
 
