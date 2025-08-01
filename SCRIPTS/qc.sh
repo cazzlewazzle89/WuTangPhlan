@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source method.man
+source ./method.man
 source "$CONDA_SH_PATH"
 
 # limit threads to 16 if running fastp

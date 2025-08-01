@@ -1,14 +1,16 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # check that config file exists and load
-if [[ -f method.man ]]
+if [[ -f ./method.man ]]
 then
 
-  source method.man
+  source ./method.man
 
 else
 
-  echo "Config file 'method.man' not found!"
+  echo "Config file 'method.man' not found in current working directory!"
   exit 1
 
 fi
@@ -91,5 +93,5 @@ echo "Host removal: ${DECONTAM_TOOL}"
 mkdir "$OUTDIR"
 
 # run qc
-bash SCRIPTS/qc.sh
+bash "$SCRIPT_DIR"/SCRIPTS/qc.sh
 
