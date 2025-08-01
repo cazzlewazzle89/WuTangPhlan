@@ -11,19 +11,34 @@ I will write it in bash for now - but aim to build a nextflow version eventually
 - [x] config file
 - [ ] quality control
     - [ ] fastp
-    - [ ] trimmomatic
+    - [ ] trimgalore
 - [ ] host removal
     - [ ] bowtie2
         - [ ] human
         - [ ] mouse
         - [ ] user-defined
     - [ ] hostile
+        - [ ] human
+        - [ ] mouse
+        - [ ] user-defined
     - [ ] skip
 - [ ] compositional profiling
     - [ ] kraken2
     - [ ] metaphlan3
+    - [ ] singlem
 - [ ] functional profiling
     - [ ] superfocus
+- [ ] MAG reconstruction
+    - [ ] binning strategy
+        - [ ] single sample
+        - [ ] group
+        - [ ] dataset
+    - [ ] metawrap
+    - [ ] metabat2
+    - [ ] groopm
+    - [ ] checkm
+    - [ ] functional annotation of genomes
+            - [ ] emapper
 - [ ] combined composition and function
     - [ ] humann3
     - [ ] OGUs - woltka
@@ -36,17 +51,10 @@ I will write it in bash for now - but aim to build a nextflow version eventually
             - [ ] UHGG
             - [ ] GTDB
         - [ ] user MAGs only
-            - [ ] binning strategy
-                - [ ] single sample
-                - [ ] group
-                - [ ] dataset
             - [ ] dereplication cutoff
         - [ ] reference genomes plus MAGs
-            - [ ] binning stragy
             - [ ] reference database
             - [ ] dereplication cutoff
-        - [ ] functional annotation of genomes
-            - [ ] emapper
 - [ ] strain-level profiling
     - [ ] instrain
     - [ ] strainscan

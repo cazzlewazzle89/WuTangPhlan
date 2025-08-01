@@ -1,14 +1,17 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_FILE="$SCRIPT_DIR/method.man"
+
 # check that config file exists and load
-if [[ -f method.man ]]
+if [[ -f "$CONFIG_FILE" ]]
 then
 
-  source method.man
+  source "$CONFIG_FILE"
 
 else
 
-  echo "Config file 'method.man' not found!"
+  echo "Config file 'method.man' not found in directory: ${SCRIPT_DIR}"
   exit 1
 
 fi
