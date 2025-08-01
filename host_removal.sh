@@ -12,7 +12,6 @@ then
 else
 
     echo "Performing host removal with ${HOST_TOOL}"
-    echo "Host name: ${HOST_NAME}"
 
 fi
 
@@ -51,6 +50,9 @@ check_bowtie2_index() {
 
 }
 
+# confirm existence
+check_bowtie2_index "$HOST_DATABASE" || exit 1
+
 # source conda
 source "$CONDA_SH_PATH"
 
@@ -63,8 +65,6 @@ do
 
     if [ "$HOST_TOOL" == "bowtie2" ]
     then
-        
-        check_bowtie2_index "$HOST_DATABASE" || exit 1
         
         bowtie2 \
             --threads "$HOST_THREADS" \
@@ -88,9 +88,7 @@ do
         rm -f "$OUTDIR"/FASTQ/"$i"_trimmed_R2.fastq.gz 
         rm -f "$OUTDIR"/FASTQ/"$i"_microbial.bam
 
-    elif [ "$HOST_TOOL" == "hostile" ]
-
-        check_bowtie2_index "$HOST_DATABASE" || exit 1
+    else
 
         hostile clean \
             --fastq1 "$OUTDIR"/FASTQ/"$i"_trimmed_R1.fastq.gz \
