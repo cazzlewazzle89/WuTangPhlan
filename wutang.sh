@@ -87,11 +87,15 @@ fi
 echo "Input: ${MANIFEST}"
 echo "Output: ${OUTDIR}"
 echo "Quality control: ${QUALITY_TOOL}"
-echo "Host removal: ${DECONTAM_TOOL}"
+echo "Host removal: ${HOST_TOOL}"
+echo "Host database: ${HOST_DATABASE}"
 
 # make output directory
 mkdir "$OUTDIR"
 
 # run qc
 bash "$SCRIPT_DIR"/SCRIPTS/qc.sh
+
+# run host removal
+bash "$SCRIPT_DIR"/SCRIPTS/host_removal.sh
 

@@ -1,24 +1,39 @@
 #!/bin/bash
 
 source ./method.man
-source "$CONDA_SH_PATH"
+
+# check if told to skip
+if [[ "$QUALITY_TOOL" == "skip" ]]
+then
+
+    echo "Skipping qc as specified"
+    exit 0
+
+else
+
+    echo "Performing qc with ${QUALITY_TOOL}"
+
+fi
 
 # limit threads to 16 if running fastp
 if [[ "$QUALITY_TOOL" == "fastp" ]]
 then
 
-    if [[ "$THREADS" -gt 16 ]]
+    if [[ "$QC_THREADS" -gt 16 ]]
     then
 
         FASTP_THREADS=16
 
     else
 
-        FASTP_THREADS="$THREADS"
+        FASTP_THREADS="$QC_THREADS"
 
     fi
 
 fi
+
+# source conda
+source "$CONDA_SH_PATH"
 
 # activate conda environment
 conda activate "$CONDA_ENV_QC"
@@ -36,8 +51,8 @@ do
         fastp \
             --in1 "$j" \
             --in2 "$k" \
-            --out1 "$OUTDIR"/FASTQ/"$i"_R1_trimmed.fq.gz \
-            --out2 "$OUTDIR"/FASTQ/"$i"_R2_trimmed.fq.gz \
+            --out1 "$OUTDIR"/FASTQ/"$i"_trimmed_R1.fastq.gz \
+            --out2 "$OUTDIR"/FASTQ/"$i"_trimmed_R2.fastq.gz \
             --detect_adapter_for_pe \
             --length_required 50 \
             --thread "$FASTP_THREADS" \
@@ -51,9 +66,12 @@ do
             --length 50 \
             -o "$OUTDIR"/FASTQ/ \
             --basename "$i" \
-            --cores 1 \
+            --cores "$QC_THREADS" \
             --paired \
             "$j" "$k"
+
+        mv "$OUTDIR"/FASTQ/"$i"_val_1.fq.gz "$OUTDIR"/FASTQ/"$i"_trimmed_R1.fastq.gz
+        mv "$OUTDIR"/FASTQ/"$i"_val_2.fq.gz "$OUTDIR"/FASTQ/"$i"_trimmed_R2.fastq.gz
             
     fi 
 

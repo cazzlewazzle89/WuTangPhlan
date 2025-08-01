@@ -2,17 +2,19 @@
 # general stuff
 MANIFEST="manifest.tsv"
 OUTDIR="WUTANG"
-THREADS=2
 
 # making sure conda envs can be loaded by wutang.sh
-CONDA_SH_PATH="/Users/cwwalsh/miniconda3/etc/profile.d/conda.sh"
+CONDA_SH_PATH="/home/cwwalsh/miniconda3/etc/profile.d/conda.sh"
 
 # quality control
 QUALITY_TOOL="fastp"
-CONDA_ENV_QC="/Users/cwwalsh/miniconda3/envs/fastp/"
+CONDA_ENV_QC="/home/cwwalsh/miniconda3/envs/kneaddata/"
+QC_THREADS=20
 
 # host removal
 HOST_TOOL="hostile"
 HOST_NAME="human"
-CONDA_ENV_HOST="/Users/cwwalsh/miniconda3/envs/bowtie2/"
+HOST_DATABASE="/home/cwwalsh/Databases/Hostile/human-t2t-hla-argos985-mycob140"
+CONDA_ENV_HOST="/home/cwwalsh/miniconda3/envs/hostile/"
+HOST_THREADS=20
 
