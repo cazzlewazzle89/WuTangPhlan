@@ -57,7 +57,7 @@ check_bowtie2_index "$HOST_DATABASE" || exit 1
 source "$CONDA_SH_PATH"
 
 # activate conda environment
-conda activate "$CONDA_ENV_QC"
+conda activate "$CONDA_ENV_HOST"
 
 # run qc
 while read -r i j k 
@@ -97,6 +97,12 @@ do
             --index "$HOST_DATABASE" \
             --output "$OUTDIR"/FASTQ/ \
             --threads "$HOST_THREADS"
+
+        mv "$OUTDIR"/FASTQ/"$i"_trimmed_R1.clean_1.fastq.gz "$OUTDIR"/FASTQ/"$i"_R1.fastq.gz
+        mv "$OUTDIR"/FASTQ/"$i"_trimmed_R2.clean_2.fastq.gz "$OUTDIR"/FASTQ/"$i"_R2.fastq.gz
+
+        rm -f "$OUTDIR"/FASTQ/"$i"_trimmed_R1.fastq.gz
+        rm -f "$OUTDIR"/FASTQ/"$i"_trimmed_R2.fastq.gz
             
     fi 
 
