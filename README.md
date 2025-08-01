@@ -9,23 +9,22 @@ I will write it in bash for now - but aim to build a nextflow version eventually
 
 - [x] main script
 - [x] config file
-- [ ] quality control
-    - [ ] fastp
-    - [ ] trimgalore
-- [ ] host removal
-    - [ ] bowtie2
-        - [ ] human
-        - [ ] mouse
-        - [ ] user-defined
-    - [ ] hostile
-        - [ ] human
-        - [ ] mouse
-        - [ ] user-defined
-    - [ ] skip
+- [x] quality control
+    - [x] fastp
+    - [x] trimgalore
+    - [x] skip
+- [x] host removal
+    - [x] bowtie2
+        - [x] user-defined
+    - [x] hostile
+        - [x] user-defined
+    - [x] skip
+    - [ ] download script for pre-built databases
 - [ ] compositional profiling
     - [ ] kraken2
     - [ ] metaphlan3
     - [ ] singlem
+    - [ ] download script for pre-built databases
 - [ ] functional profiling
     - [ ] superfocus
 - [ ] MAG reconstruction
@@ -49,12 +48,14 @@ I will write it in bash for now - but aim to build a nextflow version eventually
             - [ ] SGB
             - [ ] MGBC
             - [ ] UHGG
-            - [ ] GTDB
+            - [ ] GTDB (reps, dereplicated)
+            - [ ] download script for pre-built databases
         - [ ] user MAGs only
             - [ ] dereplication cutoff
         - [ ] reference genomes plus MAGs
             - [ ] reference database
             - [ ] dereplication cutoff
+            - [ ] download script for pre-built databases
 - [ ] strain-level profiling
     - [ ] instrain
     - [ ] strainscan
