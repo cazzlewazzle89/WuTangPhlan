@@ -116,6 +116,7 @@ fi
 echo "Quality control: ${QUALITY_TOOL}"
 echo "Host removal: ${HOST_TOOL}"
 echo "Host database: ${HOST_DATABASE}"
+echo "\n\n\n"
 
 # make output directory
 mkdir "$OUTDIR"

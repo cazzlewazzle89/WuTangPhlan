@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source ./method.man
-source "$SCRIPT_DIR"/SCRIPTS/utility.sh
+source "$(dirname "$0")/utility.sh"
 
 # confirm existence
 check_bowtie2_index "$HOST_DATABASE" || exit 1
