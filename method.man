@@ -15,13 +15,13 @@ QC_THREADS=20
 CONDA_ENV_QC="/home/cwwalsh/miniconda3/envs/kneaddata/"
 
 # host removal
-HOST_TOOL="hostile" # options bowtie2, [fastp]
+HOST_TOOL="hostile" # options bowtie2, [hostile]
 HOST_DATABASE="/home/cwwalsh/Databases/Hostile/human-t2t-hla-argos985-mycob140"
 HOST_THREADS=20
 CONDA_ENV_HOST="/home/cwwalsh/miniconda3/envs/hostile/"
 
 # read profiling
-PROFILE_TOOL="kraken2" # options 
+PROFILE_TOOL="kraken2" # options metaphlan, humann, singlem, [kraken2]
 PROFILE_DATABASE=""
 PROFILE_THREADS=20
 CONDA_ENV_PROFILE=""

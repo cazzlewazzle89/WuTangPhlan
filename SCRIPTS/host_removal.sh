@@ -57,5 +57,5 @@ done < "$MANIFEST"
 
 # make updated manifest file with "clean" reads
 while read -r i j k; do
-    echo ""$i"\t"$OUTDIR"/FASTQ/"$i"_R1.fastq.gz\t"$OUTDIR"/FASTQ/"$i"_R2.fastq.gz"
+    echo -e ""$i"\t"$OUTDIR"/FASTQ/"$i"_R1.fastq.gz\t"$OUTDIR"/FASTQ/"$i"_R2.fastq.gz"
 done < "$MANIFEST" > "$OUTDIR"/manifest_clean.tsv
