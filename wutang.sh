@@ -43,6 +43,9 @@ if [ ! -f "$MANIFEST" ]; then
 fi
 
 # print pipeline options
+echo ""
+echo ""
+echo ""
 echo "Input: ${MANIFEST}"
 echo "Output: ${OUTDIR}"
 echo "Quality Control: ${RUN_QC}"
