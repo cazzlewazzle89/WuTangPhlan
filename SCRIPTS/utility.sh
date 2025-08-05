@@ -13,10 +13,18 @@ check_bowtie2_index() {
     done
 
     if [[ $missing -eq 1 ]]; then    
+        echo ""
+        echo ""
         echo "Missing Bowtie2 index files for prefix: $HOST_DATABASE" >&2
+        echo ""
+        echo ""
         return 1    
     else    
+        echo ""
+        echo ""
         echo "Host Bowtie2 index is valid: $HOST_DATABASE"
+        echo ""
+        echo ""
         return 0    
     fi
 }

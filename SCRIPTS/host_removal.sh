@@ -3,14 +3,16 @@
 source ./method.man
 source "$(dirname "$0")/utility.sh"
 
-# confirm existence
+# confirm existence of specified bowtie2 database
 check_bowtie2_index "$HOST_DATABASE" || exit 1
 
-# source conda
-source "$CONDA_SH_PATH"
-
-# activate conda environment
-conda activate "$CONDA_ENV_HOST"
+# source conda and load env if required
+if [[ -n "$CONDA_ENV_HOST" ]]; then
+    source "$CONDA_SH_PATH"
+    conda activate "$CONDA_ENV_HOST"
+else
+    echo "No Conda environment specified for host removal. Assuming required tools are already in PATH."
+fi
 
 # run qc
 while read -r i j k; do
@@ -52,3 +54,8 @@ while read -r i j k; do
         rm -f "$OUTDIR"/FASTQ/"$i"_trimmed_R2.fastq.gz            
     fi 
 done < "$MANIFEST"
+
+# make updated manifest file with "clean" reads
+while read -r i j k; do
+    echo ""$i"\t"$OUTDIR"/FASTQ/"$i"_R1.fastq.gz\t"$OUTDIR"/FASTQ/"$i"_R2.fastq.gz"
+done < "$MANIFEST" > "$OUTDIR"/manifest_clean.tsv

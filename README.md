@@ -19,10 +19,11 @@ I will write it in bash for now - but aim to build a nextflow version eventually
     - [x] hostile
         - [x] user-defined
     - [x] skip
-- [ ] compositional profiling
+- [ ] read profiling
     - [ ] kraken2
     - [ ] metaphlan3
     - [ ] singlem
+    - [ ] humann3
 - [ ] functional profiling
     - [ ] superfocus
 - [ ] MAG reconstruction
@@ -36,22 +37,20 @@ I will write it in bash for now - but aim to build a nextflow version eventually
     - [ ] checkm
     - [ ] functional annotation of genomes
             - [ ] emapper
-- [ ] combined composition and function
-    - [ ] humann3
-    - [ ] OGUs - woltka
-        - [ ] alignment approach
-            - [ ] bowtie2
-            - [ ] shogun
-        - [ ] reference database only
-            - [ ] SGB
-            - [ ] MGBC
-            - [ ] UHGG
-            - [ ] GTDB (reps, dereplicated)
-        - [ ] user MAGs only
-            - [ ] dereplication cutoff
-        - [ ] reference genomes plus MAGs
-            - [ ] reference database
-            - [ ] dereplication cutoff
+- [ ] OGUs
+    - [ ] alignment approach
+        - [ ] bowtie2
+        - [ ] shogun
+    - [ ] reference database only
+        - [ ] SGB
+        - [ ] MGBC
+        - [ ] UHGG
+        - [ ] GTDB (reps, dereplicated)
+    - [ ] user MAGs only
+        - [ ] dereplication cutoff
+    - [ ] reference genomes plus MAGs
+        - [ ] reference database
+        - [ ] dereplication cutoff
 - [ ] strain-level profiling
     - [ ] instrain
         - [ ] reference database only

@@ -11,11 +11,13 @@ if [[ "$QUALITY_TOOL" == "fastp" ]]; then
     fi
 fi
 
-# source conda
-source "$CONDA_SH_PATH"
-
-# activate conda environment
-conda activate "$CONDA_ENV_QC"
+# source conda and load env if required
+if [[ -n "$CONDA_ENV_QC" ]]; then
+    source "$CONDA_SH_PATH"
+    conda activate "$CONDA_ENV_QC"
+else
+    echo "No Conda environment specified for qc. Assuming required tools are already in PATH."
+fi
 
 # make output directory
 mkdir -p "$OUTDIR"/FASTQ

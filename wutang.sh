@@ -45,11 +45,12 @@ fi
 # print pipeline options
 echo ""
 echo ""
-echo ""
 echo "Input: ${MANIFEST}"
 echo "Output: ${OUTDIR}"
 echo "Quality Control: ${RUN_QC}"
 echo "Host Removal: ${RUN_HOST}"
+echo ""
+echo ""
 
 # confirm that specified qc tool is valid (if applicable)
 if [ "$RUN_QC" == "TRUE" ]; then
@@ -77,21 +78,24 @@ echo "Host removal: ${HOST_TOOL}"
 echo "Host database: ${HOST_DATABASE}"
 echo ""
 echo ""
-echo ""
 
 # make output directory
 mkdir "$OUTDIR"
 
 # run qc
 if [[ "$RUN_QC" == "FALSE" ]]; then  
+  echo ""
   echo "Skipping qc as specified"  
+  echo ""
   else  
   bash "$SCRIPT_DIR"/SCRIPTS/qc.sh
 fi
 
 # run host removal
 if [[ "$RUN_HOST" == "FALSE" ]]; then  
+  echo ""
   echo "Skipping host removal as specified"  
+  echo ""
   else  
   bash "$SCRIPT_DIR"/SCRIPTS/host_removal.sh
 fi
